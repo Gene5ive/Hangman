@@ -4,7 +4,7 @@ defmodule Hangman.Game do
     turns_left: 7,
     game_state: :initializing,
     letters:    [],
-    used:       MapSet.new(),
+    used:       MapSet.new()
   )
 
   @spec new_game(binary) :: Hangman.Game.t()
@@ -49,7 +49,7 @@ defmodule Hangman.Game do
   ######################################
 
   @spec accept_move(map, any, any) :: map
-  defp accept_move(game, guess, _already_guessed = true) do
+  defp accept_move(game, _guess, _already_guessed = true) do
     Map.put(game, :game_state, :already_used)
   end
 
@@ -85,7 +85,7 @@ defmodule Hangman.Game do
 
   @spec reveal_letter(any, any) :: any
   defp reveal_letter(letter, _in_word = true), do: letter
-  defp reveal_letter(letter, _not_in_word),    do: "_"
+  defp reveal_letter(_letter, _not_in_word),   do: "_"
 
   @spec maybe_won(any) :: :good_guess | :won
   defp maybe_won(true), do: :won
