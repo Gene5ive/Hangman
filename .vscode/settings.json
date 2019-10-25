@@ -1,3 +1,6 @@
 {
-    "elixirLS.projectDir": "hangman"
+    "elixirLS.projectDir": "hangman",
+    "git.showPushSuccessNotification": true,
+    "git.allowForcePush": true,
+    "git.enableSmartCommit": true
 }
